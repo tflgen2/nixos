@@ -21,6 +21,13 @@
             inputs.home-manager.nixosModules.default
           ];
         };
+	zbookSlim = nixpkgs.lib.nixosSystem {
+          specialArgs = {inherit inputs;};
+          modules = [
+            ./hosts/zbookSlim/configuration.nix
+            inputs.home-manager.nixosModules.default
+          ];
+        };
 	p14s = nixpkgs.lib.nixosSystem {
           specialArgs = {inherit inputs;};
           modules = [
