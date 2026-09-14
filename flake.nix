@@ -9,10 +9,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    nixos-hardware.url = "github:NixOS/nixos-hardware";
+    #nixos-hardware.url = "github:NixOS/nixos-hardware";
   };
 
-  outputs = { self, nixpkgs, home-manager, nixos-hardware, ... }:
+  outputs = { self, nixpkgs, home-manager, ... }:
     {
       nixosConfigurations.t440p = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
@@ -20,7 +20,7 @@
         modules = [
           ./hosts/t440p
 
-          nixos-hardware.nixosModules.lenovo-thinkpad-t440p
+          #nixos-hardware.nixosModules.lenovo-thinkpad-t440p
           home-manager.nixosModules.home-manager
 
           {
