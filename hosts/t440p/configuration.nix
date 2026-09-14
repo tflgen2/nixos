@@ -19,8 +19,16 @@
       "udev.log_level=3"
       "systemd.show_status=auto"
     ];
-    loader.timeout = 0;
+    loader.timeout = 10;
+    extraModprobeConfig = ''
+      options thinkpad_acpi force-load=1 fan_control=1
+    '';
   };
+  hardware.trackpoint = {
+    enable = true;
+    emulateWheel = true;
+  };
+  hardware.cpu.intel.updateMicrocode = true;
   imports =
     [ 
       ./hardware-configuration.nix
