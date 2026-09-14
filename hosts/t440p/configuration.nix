@@ -23,6 +23,10 @@
     extraModprobeConfig = ''
       options thinkpad_acpi force-load=1 fan_control=1
     '';
+    blacklistedKernelModules = [
+      "mei_me"
+      "mei"
+    ];
   };
   hardware.trackpoint = {
     enable = true;
