@@ -23,7 +23,6 @@
   };
   imports =
     [ 
-      <nixos-hardware/lenovo/thinkpad/t440p>
       ./hardware-configuration.nix
     ];
 
@@ -34,7 +33,6 @@
   networking.networkmanager.enable = true;
   networking.firewall.trustedInterfaces = [ "virbr0" ];
 
-  time.timeZone = "America/New_York";
 
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
@@ -78,14 +76,14 @@
 
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.clay = {
-    isNormalUser = true;
-    description = "Clay Biela";
-    extraGroups = [ "networkmanager" "wheel" "libvirtd" ];
-    packages = with pkgs; [
-      thunderbird
-    ];
-  };
+  #users.users.clay = {
+    #isNormalUser = true;
+    #description = "Clay Biela";
+    #extraGroups = [ "networkmanager" "wheel" "libvirtd" ];
+    #packages = with pkgs; [
+      #thunderbird
+    #];
+  #};
 
   # Install firefox.
   programs.firefox.enable = true;

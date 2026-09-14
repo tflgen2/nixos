@@ -3,11 +3,12 @@
 {
   imports = [
     ./hardware-configuration.nix
+    ./configuration.nix
 
-    ../../modules/desktop/gnome.nix
-    ../../modules/development.nix
-    ../../modules/virtualization.nix
-    ../../modules/laptop.nix
+    #../../modules/desktop/gnome.nix
+    #../../modules/development.nix
+    #../../modules/virtualization.nix
+    #../../modules/laptop.nix
   ];
 
   networking.hostName = "nix-440p";
@@ -16,10 +17,14 @@
 
   users.users.clay = {
     isNormalUser = true;
-    description = "Clay";
+    description = "Clay Biela";
     extraGroups = [
       "wheel"
       "networkmanager"
+      "libvirtd"
+    ];
+    packages = with pkgs; [
+      thunderbird
     ];
   };
 

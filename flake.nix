@@ -8,9 +8,11 @@
       url = "github:nix-community/home-manager/release-25.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    nixos-hardware.url = "github:NixOS/nixos-hardware";
   };
 
-  outputs = { self, nixpkgs, home-manager, ... }:
+  outputs = { self, nixpkgs, home-manager, nixos-hardware, ... }:
     {
       nixosConfigurations.t440p = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
@@ -18,6 +20,7 @@
         modules = [
           ./hosts/t440p
 
+          nixos-hardware.nixosModules.lenovo-thinkpad-t440p
           home-manager.nixosModules.home-manager
 
           {
