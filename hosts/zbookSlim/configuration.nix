@@ -118,6 +118,7 @@
     rtorrent
     qbittorrent
     git
+    tree
   ];
 
   virtualisation.libvirtd.enable = true;
