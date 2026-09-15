@@ -1,8 +1,12 @@
 { config, pkgs, lib, ... }:
 
 {
+  home.file.".p10k.zsh".source = ./p10k.zsh;
   programs.zsh = {
     enable = true;
+    envExtra = ''
+      [[ -f ~/.p10k.zsh ]] && source ~/.p10k.zsh
+    '';
 
     enableCompletion = true;
     autosuggestion.enable = true;
