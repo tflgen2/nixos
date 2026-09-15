@@ -5,16 +5,26 @@
   home.packages = with pkgs; [
     papirus-icon-theme
     gnome-tweaks
+    bibata-cursors
+
     gnomeExtensions.dash-to-dock
     gnomeExtensions.appindicator
 
   ];
+  home.pointerCursor = {
+    package = pkgs.bibata-cursors;
+    name = "Bibata-Modern-Classic";
+    size = 24;
+    gtk.enable = true;
+  };
+
   dconf.settings = {
     "org/gnome/desktop/interface" = {
       color-scheme = "prefer-dark";
       accent-color = "red";
       icon-theme = "Papirus-Dark";
-      cursor-theme = "Adwaita";
+      cursor-theme = "Bibata-Modern-Classic";
+      cursor-size = 24;
       enable-animations = true;
     };
     "org/gnome/desktop/wm/keybindings" = {
