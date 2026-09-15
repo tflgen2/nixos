@@ -128,5 +128,11 @@
   system.stateVersion = "25.11"; 
 
   nixpkgs.config.allowUnfree = true;
+  
+  fonts.packages = with pkgs; [
+	nerd-fonts.meslo-lg
+  ];
+
+
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 }
