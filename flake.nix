@@ -15,25 +15,45 @@
 
   outputs = { self, nixpkgs, nixpkgs-unstable, home-manager, ... }:
     {
-      nixosConfigurations.t440p = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
+      nixosConfigurations = {
+	t440p = nixpkgs.lib.nixosSystem {
+			system = "x86_64-linux";
 
-        modules = [
-          ./hosts/t440p
+			modules = [
+				./hosts/t440p
 
-          #nixos-hardware.nixosModules.lenovo-thinkpad-t440p
-          home-manager.nixosModules.home-manager
+				#nixos-hardware.nixosModules.lenovo-thinkpad-t440p
+				home-manager.nixosModules.home-manager
 
-          {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.users.clay = import ./home;
-	    home-manager.extraSpecialArgs = {
-		inherit nixpkgs-unstable;
-	    };
-          }
-        ];
-      };
+				{
+				  home-manager.useGlobalPkgs = true;
+				  home-manager.useUserPackages = true;
+				  home-manager.users.clay = import ./home;
+				  home-manager.extraSpecialArgs = {
+				      inherit nixpkgs-unstable;
+				  };
+				}
+			];
+	        };
+	zbookSlim = nixpkgs.lib.nixosSystem {
+			system = "x86_64-linux";
+
+			modules = [
+				./hosts/zbookSlim
+
+				home-manager.nixosModules.home-manager
+
+				{
+				  home-manager.useGlobalPkgs = true;
+				  home-manager.useUserPackages = true;
+				  home-manager.users.clay = import ./home;
+				  home-manager.extraSpecialArgs = {
+				      inherit nixpkgs-unstable;
+				  };
+				}
+			];
+	        };
+     };
     };
 }
 
