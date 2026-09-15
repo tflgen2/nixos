@@ -11,6 +11,7 @@ in
 	home.packages = with pkgs; [
 		# add user pkgs here
 		pkgs-unstable.bitwarden-desktop
+		pkgs-unstable.winbox4
 	];
 	imports = [
 		./gnome.nix
