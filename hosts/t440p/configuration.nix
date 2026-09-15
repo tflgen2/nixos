@@ -123,6 +123,7 @@
   virtualisation.libvirtd.enable = true;
   programs.virt-manager.enable = true;
   programs.winbox.enable = true;
+  programs.zsh.enable = true;
 
   system.stateVersion = "25.11"; 
 

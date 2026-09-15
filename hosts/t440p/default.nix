@@ -26,6 +26,7 @@
     packages = with pkgs; [
       thunderbird
     ];
+    shell = pkgs.zsh;
   };
 
   nix.settings.experimental-features = [
