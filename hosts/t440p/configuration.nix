@@ -124,6 +124,10 @@
   programs.virt-manager.enable = true;
   programs.winbox.enable = true;
   programs.zsh.enable = true;
+  programs.steam = {
+    enable = true;
+  };
+  programs.gamemode.enable = true;
 
   system.stateVersion = "25.11"; 
 
