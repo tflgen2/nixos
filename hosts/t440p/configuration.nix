@@ -8,7 +8,7 @@
       theme = "rings";
       themePackages = with pkgs; [
         (adi1090x-plymouth-themes.override {
-          selected_themes = [ "angular alt" ];
+          selected_themes = [ "rings" ];
         })
       ];
     };

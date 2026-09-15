@@ -5,4 +5,7 @@
 	home.packages = with pkgs; [
 		# add user pkgs here
 	];
+	imports = [
+		./gnome.nix
+	];
 }
