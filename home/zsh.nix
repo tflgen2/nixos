@@ -25,6 +25,9 @@
       la = "ls -lah";
       grep = "grep --color=auto";
     };
+    sessionVariables = {
+	SSH_AUTH_SOCK = "$HOME/.bitwarden-ssh-agent.sock";
+    };
 
     initContent = ''
       # Manjaro-style key bindings
