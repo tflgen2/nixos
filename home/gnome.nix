@@ -9,6 +9,7 @@
   dconf.settings = {
     "org/gnome/desktop/interface" = {
       color-scheme = "prefer-dark";
+      accent-color = "red";
       icon-theme = "Papirus-Dark";
       cursor-theme = "Adwaita";
       enable-animations = true;
