@@ -32,6 +32,7 @@
       cursor-size = 24;
       enable-animations = true;
       gtk-theme = "adw-gtk3-dark";
+      font-name = "Noto Sans 11";
       document-font-name = "Sans 11";
     };
     "org/gnome/desktop/wm/keybindings" = {
