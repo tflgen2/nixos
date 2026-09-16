@@ -2,6 +2,17 @@
 
 
 { 
+  #configuration to support accent color from manjaro
+  xdg.configFile."gtk-4.0/gtk.css".text = ''
+    :root {
+      --accent-bg-color: #16a085;
+    }
+  '';
+  xdg.configFile."gtk-3.0/gtk.css".text = ''
+    @define-color accent_color #16a085;
+    @define-color accent_bg_color #16a085;
+    @define-color theme_selected_bg_color #16a085;
+  '';
   home.packages = with pkgs; [
     papirus-icon-theme
     gnome-tweaks
