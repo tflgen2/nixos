@@ -19,6 +19,10 @@
   };
 
   dconf.settings = {
+    "org/gnome/Console" = {
+      use-system-font = false;
+      custom-font = "MesloLGS Nerd Font 11';
+    };
     "org/gnome/desktop/interface" = {
       color-scheme = "prefer-dark";
       accent-color = "red";
