@@ -5,6 +5,7 @@
     ./hardware-configuration.nix
     ./configuration.nix
 
+    ../../modules/fonts.nix
     #../../modules/desktop/gnome.nix
     #../../modules/development.nix
     #../../modules/virtualization.nix
