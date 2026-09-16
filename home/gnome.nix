@@ -32,6 +32,7 @@
       cursor-size = 24;
       enable-animations = true;
       gtk-theme = "adw-gtk3-dark";
+      document-font-name = "Sans 11";
     };
     "org/gnome/desktop/wm/keybindings" = {
 	    switch-to-workspace-1 = [ "<Super>1" ];

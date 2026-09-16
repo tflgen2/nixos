@@ -134,9 +134,10 @@
 
   nixpkgs.config.allowUnfree = true;
   
-  fonts.packages = with pkgs; [
-	nerd-fonts.meslo-lg
-  ];
+  #fonts.packages = with pkgs; [
+	#nerd-fonts.meslo-lg
+	#noto-fonts
+  #];
 
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
