@@ -6,6 +6,7 @@
     papirus-icon-theme
     gnome-tweaks
     bibata-cursors
+    adw-gtk3
 
     gnomeExtensions.dash-to-dock
     gnomeExtensions.appindicator
@@ -30,6 +31,7 @@
       cursor-theme = "Bibata-Modern-Classic";
       cursor-size = 24;
       enable-animations = true;
+      gtk-theme = "adw-gtk3-dark";
     };
     "org/gnome/desktop/wm/keybindings" = {
 	    switch-to-workspace-1 = [ "<Super>1" ];
