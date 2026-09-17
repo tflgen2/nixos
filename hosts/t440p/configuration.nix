@@ -33,17 +33,13 @@
     emulateWheel = true;
   };
   hardware.cpu.intel.updateMicrocode = true;
-  imports =
-    [ 
-      ./hardware-configuration.nix
-    ];
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  networking.hostName = "nix-440p"; # Define your hostname.
   networking.networkmanager.enable = true;
   networking.firewall.trustedInterfaces = [ "virbr0" ];
+  networking.hostName = "t440p";
 
 
   # Select internationalisation properties.
@@ -71,11 +67,6 @@
     layout = "us";
     variant = "";
   };
-  #programs.hyprland = {
-    #enable = true;
-    #withUWSM = true;
-    #xwayland.enable = true;
-  #};
 
   services.pulseaudio.enable = false;
   security.rtkit.enable = true;
@@ -88,15 +79,6 @@
   };
 
 
-  # Define a user account. Don't forget to set a password with ‘passwd’.
-  #users.users.clay = {
-    #isNormalUser = true;
-    #description = "Clay Biela";
-    #extraGroups = [ "networkmanager" "wheel" "libvirtd" ];
-    #packages = with pkgs; [
-      #thunderbird
-    #];
-  #};
 
   # Install firefox.
   programs.firefox.enable = true;
