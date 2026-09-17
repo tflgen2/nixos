@@ -28,6 +28,7 @@
 		git
 		asciiquarium
 		fastfetch
+		tcpdump
 	];
 	
 	nixpkgs.config.allowUnfree = true;
