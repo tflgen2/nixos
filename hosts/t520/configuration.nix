@@ -17,16 +17,22 @@
     kernelParams = [
       "quiet"
       "udev.log_level=3"
-      "systemd.show_status=auto"
     ];
-    loader.timeout = 10;
-    extraModprobeConfig = ''
-      options thinkpad_acpi force-load=1 fan_control=1
-    '';
-    blacklistedKernelModules = [
-      "mei_me"
-      "mei"
-    ];
+    loader = {
+	timeout = 10;
+	grub = {
+		enable = true;
+		device = "/dev/sda";
+		useOSProber = true;
+	};
+    };
+    #extraModprobeConfig = ''
+      #options thinkpad_acpi force-load=1 fan_control=1
+    #'';
+    #blacklistedKernelModules = [
+      #"mei_me"
+      #"mei"
+    #];
   };
   hardware.trackpoint = {
     enable = true;
@@ -34,11 +40,17 @@
   };
   hardware.cpu.intel.updateMicrocode = true;
 
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
 
   networking.hostName = "t520";
 
+  services.printing = {
+	enable = true;
+	drivers = [
+		pkgs.brlaser
+		pkgs.brgenml1lpr
+		pkgs.brgenml1cupswrapper
+	];
+  };
 
 
   system.stateVersion = "25.11"; 
