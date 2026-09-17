@@ -38,7 +38,6 @@
   boot.loader.efi.canTouchEfiVariables = true;
 
   networking.networkmanager.enable = true;
-  networking.firewall.trustedInterfaces = [ "virbr0" ];
   networking.hostName = "t440p";
 
 
@@ -102,8 +101,6 @@
     git
   ];
 
-  virtualisation.libvirtd.enable = true;
-  programs.virt-manager.enable = true;
   programs.winbox.enable = true;
   programs.zsh.enable = true;
   programs.steam = {
