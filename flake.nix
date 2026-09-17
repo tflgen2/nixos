@@ -35,6 +35,25 @@
 				}
 			];
 	        };
+	t520 = nixpkgs.lib.nixosSystem {
+			system = "x86_64-linux";
+
+			modules = [
+				./hosts/t520
+
+				#nixos-hardware.nixosModules.lenovo-thinkpad-t440p
+				home-manager.nixosModules.home-manager
+
+				{
+				  home-manager.useGlobalPkgs = true;
+				  home-manager.useUserPackages = true;
+				  home-manager.users.clay = import ./home;
+				  home-manager.extraSpecialArgs = {
+				      inherit nixpkgs-unstable;
+				  };
+				}
+			];
+	        };
 	zbookSlim = nixpkgs.lib.nixosSystem {
 			system = "x86_64-linux";
 
