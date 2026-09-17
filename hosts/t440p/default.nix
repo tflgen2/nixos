@@ -8,8 +8,9 @@
     ../../modules/common.nix
     ../../modules/fonts.nix
     ../../modules/users.nix
-    #../../modules/desktop/gnome.nix
-    #../../modules/development.nix
+    ../../modules/desktop/gnome.nix
+    ../../modules/gaming.nix
+    ../../modules/engineering.nix
     ../../modules/virtualization.nix
     #../../modules/laptop.nix
   ];
