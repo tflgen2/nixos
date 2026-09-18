@@ -26,6 +26,9 @@
 		useOSProber = true;
 	};
     };
+    
+    kernelPackages = pkgs.linuxPackages_latest;
+
     #extraModprobeConfig = ''
       #options thinkpad_acpi force-load=1 fan_control=1
     #'';
