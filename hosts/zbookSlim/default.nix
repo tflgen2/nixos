@@ -4,31 +4,14 @@
   imports = [
     ./hardware-configuration.nix
     ./configuration.nix
+    ../../modules/common.nix
     ../../modules/fonts.nix
+    ../../modules/users.nix
 
-    #../../modules/desktop/gnome.nix
-    #../../modules/development.nix
-    #../../modules/virtualization.nix
+    ../../modules/desktop/gnome.nix
+    ../../modules/engineering.nix
     #../../modules/laptop.nix
   ];
-
-  networking.hostName = "zbookSlim";
-
-  time.timeZone = "America/Indiana/Indianapolis";
-
-  users.users.clay = {
-    isNormalUser = true;
-    description = "Clay Biela";
-    extraGroups = [
-      "wheel"
-      "networkmanager"
-      "libvirtd"
-    ];
-    packages = with pkgs; [
-      thunderbird
-    ];
-    shell = pkgs.zsh;
-  };
 
   nix.settings.experimental-features = [
     "nix-command"
