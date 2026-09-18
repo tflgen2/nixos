@@ -1,26 +1,87 @@
 { config, pkgs, lib, ... }:
 
+let 
+  accent = "teal";
 
+  papirusAccentMap = {
+	blue = "blue";
+	teal = "darkcyan";
+	green = "green";
+	yellow = "yellow";
+	orange = "deeporange";
+	red = "red";
+	pink = "pink";
+	purple = "magenta";
+	slate = "bluegrey";
+  };
+
+  folderColor = papirusAccentMap.${accent};
+in
 { 
-  #configuration to support accent color from manjaro
-  xdg.configFile."gtk-4.0/gtk.css".text = ''
-    :root {
-      --accent-bg-color: #16a085;
-    }
-  '';
-  xdg.configFile."gtk-3.0/gtk.css".text = ''
-    @define-color accent_color #16a085;
-    @define-color accent_bg_color #16a085;
-    @define-color theme_selected_bg_color #16a085;
-  '';
+  ##configuration to support accent color from manjaro
+  #xdg.configFile."gtk-4.0/gtk.css".text = ''
+    #:root {
+      #--accent-bg-color: #16a085;
+    #}
+  #'';
+  #xdg.configFile."gtk-3.0/gtk.css".text = ''
+    #@define-color accent_color #16a085;
+    #@define-color accent_bg_color #16a085;
+    #@define-color theme_selected_bg_color #16a085;
+  #'';
+#
+  home.activation.installPapirusThemes =
+    lib.hm.dag.entryAfter [ "writeBoundary" ] ''
+      export PATH="${lib.makeBinPath [
+	pkgs.coreutils
+	pkgs.gawk
+      ]}:$PATH"
+
+      PAPIRUS="${pkgs.papirus-icon-theme}/share/icons"
+      LOCAL="$HOME/.local/share/icons"
+      MARKER="$LOCAL/.papirus-nix-source"
+
+      mkdir -p "$LOCAL"
+
+      CURRENT_SOURCE=""
+      if [ -f "$MARKER" ]; then
+        CURRENT_SOURCE="$(cat "$MARKER")"
+      fi
+
+      if [ "$CURRENT_SOURCE" != "${pkgs.papirus-icon-theme}" ]; then
+        rm -rf \
+          "$LOCAL/Papirus" \
+          "$LOCAL/Papirus-Dark" \
+          "$LOCAL/Papirus-Light"
+
+        cp -a "$PAPIRUS/Papirus" "$LOCAL/"
+        cp -a "$PAPIRUS/Papirus-Dark" "$LOCAL/"
+        cp -a "$PAPIRUS/Papirus-Light" "$LOCAL/"
+
+        chmod -R u+w \
+          "$LOCAL/Papirus" \
+          "$LOCAL/Papirus-Dark" \
+          "$LOCAL/Papirus-Light"
+
+        printf '%s\n' "${pkgs.papirus-icon-theme}" > "$MARKER"
+      fi
+
+      ${pkgs.papirus-folders}/bin/papirus-folders \
+        -C ${folderColor} \
+        --theme Papirus-Dark
+    '';
+
   home.packages = with pkgs; [
+    #papirusGreen
     papirus-icon-theme
+    papirus-folders
     gnome-tweaks
     bibata-cursors
     adw-gtk3
 
     gnomeExtensions.dash-to-dock
     gnomeExtensions.appindicator
+	
 
   ];
   home.pointerCursor = {
@@ -38,7 +99,7 @@
     };
     "org/gnome/desktop/interface" = {
       color-scheme = "prefer-dark";
-      accent-color = "red";
+      accent-color = accent;
       icon-theme = "Papirus-Dark";
       cursor-theme = "Bibata-Modern-Classic";
       cursor-size = 24;
@@ -92,6 +153,7 @@
 	enabled-extensions = [
 		"dash-to-dock@micxgx.gmail.com"
 		"appindicatorsupport@rgcjonas.gmail.com"
+		"papirus-folders-colorizer@NiffirgkaJ.github.com"
 	];
 	favorite-apps = [
 	  "nixos-manual.desktop"

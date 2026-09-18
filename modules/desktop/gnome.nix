@@ -24,8 +24,32 @@
   };
 
   programs.firefox.enable = true;
-
+  environment.gnome.excludePackages = with pkgs; [
+    baobab
+    decibels
+    epiphany
+    evince
+    geary
+    gnome-calendar
+    gnome-characters
+    gnome-clocks
+    gnome-connections
+    gnome-contacts
+    gnome-font-viewer
+    gnome-maps
+    gnome-music
+    gnome-system-monitor
+    gnome-text-editor
+    gnome-tour
+    loupe
+    simple-scan
+    snapshot
+    totem
+    yelp
+  ];
   environment.systemPackages = with pkgs; [
     gnome-tweaks
+    nautilus
+    gnome-console
   ];
 }
