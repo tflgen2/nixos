@@ -16,6 +16,24 @@
   outputs = { self, nixpkgs, nixpkgs-unstable, home-manager, ... }:
     {
       nixosConfigurations = {
+	nixos = nixpkgs.lib.nixosSystem {
+			system = "x86_64-linux";
+
+			modules = [
+				./hosts/nixos
+
+				home-manager.nixosModules.home-manager
+
+				{
+				  home-manager.useGlobalPkgs = true;
+				  home-manager.useUserPackages = true;
+				  home-manager.users.clay = import ./home;
+				  home-manager.extraSpecialArgs = {
+				      inherit nixpkgs-unstable;
+				  };
+				}
+			];
+	        };
 	t440p = nixpkgs.lib.nixosSystem {
 			system = "x86_64-linux";
 
