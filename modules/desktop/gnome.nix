@@ -51,5 +51,6 @@
     gnome-tweaks
     nautilus
     gnome-console
+    bibata-cursors
   ];
 }

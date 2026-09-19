@@ -181,7 +181,7 @@ in
 	show-trash = false;
 	show-mounts = true;
 
-	click-action = "focus-minimize-or-previews";
+	click-action = "launch";
 	scroll-action = "cycle-windows";
 	running-indicator-style = "DOTS";
 	custom-theme-shrink = true;
