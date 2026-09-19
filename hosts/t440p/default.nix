@@ -5,6 +5,7 @@
     ./hardware-configuration.nix
     ./configuration.nix
 
+    ../../modules/home-manager.nix
     ../../modules/common.nix
     ../../modules/fonts.nix
     ../../modules/users.nix

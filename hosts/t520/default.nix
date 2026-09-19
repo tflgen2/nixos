@@ -6,6 +6,7 @@
     ./configuration.nix
 
     ../../modules/common.nix
+    ../../modules/home-manager.nix
     ../../modules/fonts.nix
     ../../modules/users.nix
     ../../modules/homeUsers.nix

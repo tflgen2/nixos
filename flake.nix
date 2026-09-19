@@ -18,11 +18,12 @@
 	mkHost = host: nixpkgs.lib.nixosSystem {
 		system = "x86_64-linux";
 		specialArgs = {
-			inherit nixpkgs-unstable home-manager;
+			inherit nixpkgs-unstable ;
 		};
 		
 		modules = [
 			./hosts/${host}
+			home-manager.nixosModules.home-manager
 		];
 	};
       in

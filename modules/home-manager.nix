@@ -1,19 +1,15 @@
-{ home-manager, nixpkgs-unstable, ... }:
+{ nixpkgs-unstable, ... }:
 
 {
-	imports = [
-		home-manager.nixosModules.home-manager
-	];
 	
 	home-manager = {
 		useGlobalPkgs = true;
-		useUserPkgs = true;
+		useUserPackages= true;
 
 		extraSpecialArgs = {
 			inherit nixpkgs-unstable;
 		};
 
-		users.clay = import ../home;
 	};
 }
 	
