@@ -21,4 +21,6 @@
 			"networkmanager"
 		];
 	};
+	home-manager.users.larissa = import ../home;
+	home-manager.users.clayton = import ../home;
 }
