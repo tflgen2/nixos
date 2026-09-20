@@ -13,6 +13,7 @@ in
 		remmina
 		rtorrent
 		qbittorrent
+		google-chrome
 		pkgs-unstable.bitwarden-desktop
 		pkgs-unstable.winbox4
 
