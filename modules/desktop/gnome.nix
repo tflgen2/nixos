@@ -5,6 +5,7 @@
 	./gdm.nix
   ];
 
+  nixpkgs.config.allowUnfree = true;
   services.xserver.enable = true;
 
   services.displayManager.gdm.enable = true;
@@ -56,5 +57,6 @@
     nautilus
     gnome-console
     bibata-cursors
+    google-chrome
   ];
 }
