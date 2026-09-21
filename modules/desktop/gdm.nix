@@ -11,6 +11,7 @@
 		{
 			settings = {
 				"org/gnome/desktop/interface" = {
+					scaling-factor = lib.gvariant.mkInt32 1;
 					color-scheme = "prefer-dark";
 					accent-color = "teal";
 					cursor-theme = "Bibata-Modern-Classic";
