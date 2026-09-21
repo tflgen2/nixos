@@ -36,6 +36,7 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
+  environment.etc."xdg/monitors.xml".source = ./gdm-monitors.xml;
   networking.hostName = "nixos";
   system.stateVersion = "25.11"; 
 
