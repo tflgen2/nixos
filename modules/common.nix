@@ -19,6 +19,7 @@
 	};
 	
 	programs.zsh.enable = true;
+	programs.mtr.enable = true;
 	
 	environment.systemPackages = with pkgs; [
 		vim
