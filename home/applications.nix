@@ -12,6 +12,7 @@ in
 		kitty
 		remmina
 		rtorrent
+		tree
 		qbittorrent
 		pkgs-unstable.bitwarden-desktop
 		pkgs-unstable.winbox4
