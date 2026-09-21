@@ -72,7 +72,6 @@ in
     '';
 
   home.packages = with pkgs; [
-    #papirusGreen
     papirus-icon-theme
     papirus-folders
     gnome-tweaks
@@ -81,6 +80,7 @@ in
 
     gnomeExtensions.dash-to-dock
     gnomeExtensions.appindicator
+    gnomeExtensions.launch-new-instance
 	
 
   ];
@@ -154,6 +154,7 @@ in
 		"dash-to-dock@micxgx.gmail.com"
 		"appindicatorsupport@rgcjonas.gmail.com"
 		"papirus-folders-colorizer@NiffirgkaJ.github.com"
+		"launch-new-instance@gnome-shell-extensions.gcampax.github.com"
 	];
 	favorite-apps = [
 	  "nixos-manual.desktop"
@@ -182,7 +183,8 @@ in
 	show-trash = false;
 	show-mounts = true;
 
-	click-action = "focus-minimize-or-previews";
+	isolate-workspace = true;
+	click-action = "launch";
 	scroll-action = "cycle-windows";
 	running-indicator-style = "DOTS";
 	custom-theme-shrink = true;

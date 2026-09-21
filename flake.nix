@@ -14,82 +14,26 @@
   };
 
   outputs = { self, nixpkgs, nixpkgs-unstable, home-manager, ... }:
-    {
+      let
+	mkHost = host: nixpkgs.lib.nixosSystem {
+		system = "x86_64-linux";
+		specialArgs = {
+			inherit nixpkgs-unstable ;
+		};
+		
+		modules = [
+			./hosts/${host}
+			home-manager.nixosModules.home-manager
+		];
+	};
+      in
+      {
       nixosConfigurations = {
-	nixos = nixpkgs.lib.nixosSystem {
-			system = "x86_64-linux";
+	nixos = mkHost "nixos";
+	t440p = mkHost "t440p";
+	t520 = mkHost "t520";
+	zbookSlim = mkHost "zbookSlim";
 
-			modules = [
-				./hosts/nixos
-
-				home-manager.nixosModules.home-manager
-
-				{
-				  home-manager.useGlobalPkgs = true;
-				  home-manager.useUserPackages = true;
-				  home-manager.users.clay = import ./home;
-				  home-manager.extraSpecialArgs = {
-				      inherit nixpkgs-unstable;
-				  };
-				}
-			];
-	        };
-	t440p = nixpkgs.lib.nixosSystem {
-			system = "x86_64-linux";
-
-			modules = [
-				./hosts/t440p
-
-				#nixos-hardware.nixosModules.lenovo-thinkpad-t440p
-				home-manager.nixosModules.home-manager
-
-				{
-				  home-manager.useGlobalPkgs = true;
-				  home-manager.useUserPackages = true;
-				  home-manager.users.clay = import ./home;
-				  home-manager.extraSpecialArgs = {
-				      inherit nixpkgs-unstable;
-				  };
-				}
-			];
-	        };
-	t520 = nixpkgs.lib.nixosSystem {
-			system = "x86_64-linux";
-
-			modules = [
-				./hosts/t520
-
-				#nixos-hardware.nixosModules.lenovo-thinkpad-t440p
-				home-manager.nixosModules.home-manager
-
-				{
-				  home-manager.useGlobalPkgs = true;
-				  home-manager.useUserPackages = true;
-				  home-manager.users.clay = import ./home;
-				  home-manager.extraSpecialArgs = {
-				      inherit nixpkgs-unstable;
-				  };
-				}
-			];
-	        };
-	zbookSlim = nixpkgs.lib.nixosSystem {
-			system = "x86_64-linux";
-
-			modules = [
-				./hosts/zbookSlim
-
-				home-manager.nixosModules.home-manager
-
-				{
-				  home-manager.useGlobalPkgs = true;
-				  home-manager.useUserPackages = true;
-				  home-manager.users.clay = import ./home;
-				  home-manager.extraSpecialArgs = {
-				      inherit nixpkgs-unstable;
-				  };
-				}
-			];
-	        };
      };
     };
 }

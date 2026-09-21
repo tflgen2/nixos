@@ -11,4 +11,5 @@
 			"networkmanager"
 		];
 	};
+	home-manager.users.clay = import ../home;
 }
