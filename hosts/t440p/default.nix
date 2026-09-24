@@ -9,6 +9,7 @@
     ../../modules/common.nix
     ../../modules/fonts.nix
     ../../modules/users.nix
+    ../../modules/homeUsers.nix
     ../../modules/desktop/gnome.nix
     ../../modules/gaming.nix
     ../../modules/engineering.nix
