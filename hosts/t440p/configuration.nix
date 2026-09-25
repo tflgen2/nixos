@@ -35,6 +35,7 @@
   };
   hardware.cpu.intel.updateMicrocode = true;
 
+  environment.etc."xdg/monitors.xml".source = ./gdm-monitors.xml;
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
