@@ -41,6 +41,7 @@
 
 
 
+  environment.etc."xdg/monitors.xml".source = ./gdm-monitors.xml;
   networking.hostName = "zbookSlim";
   system.stateVersion = "25.11"; 
 
