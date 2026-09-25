@@ -11,5 +11,10 @@
 			"networkmanager"
 		];
 	};
-	home-manager.users.clay = import ../home;
+	home-manager.users.clay = {
+		imports = [
+			../home
+			../home/applications.nix
+		];
+	};
 }

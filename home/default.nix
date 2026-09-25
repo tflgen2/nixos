@@ -5,6 +5,6 @@
 	imports = [
 		./gnome.nix
 		./zsh.nix
-		./applications.nix
+#		./applications.nix
 	];
 }
