@@ -33,6 +33,7 @@
 	t440p = mkHost "t440p";
 	t520 = mkHost "t520";
 	zbookSlim = mkHost "zbookSlim";
+	zbookThick = mkHost "zbookThick";
 
      };
     };
