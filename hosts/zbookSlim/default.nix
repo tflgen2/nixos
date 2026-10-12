@@ -8,6 +8,7 @@
     ../../modules/home-manager.nix
     ../../modules/fonts.nix
     ../../modules/users.nix
+    ../../modules/homeUsers.nix
 
     ../../modules/desktop/gnome.nix
     ../../modules/engineering.nix
