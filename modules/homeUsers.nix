@@ -10,6 +10,9 @@
 		extraGroups = [
 			"networkmanager"
 		];
+		packages = [
+			pkgs.prismlauncher
+		];
 	};
 	users.users.jordan = {
 		isNormalUser = true;
