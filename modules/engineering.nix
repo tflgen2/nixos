@@ -16,5 +16,6 @@
 	environment.systemPackages = with pkgs; [
 		dnsmasq
 		python3
+		screen
 	];
 }
