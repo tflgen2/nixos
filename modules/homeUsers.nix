@@ -6,6 +6,9 @@
 		description = "Buddy";
 		initialPassword = "pass.123";
 		shell = pkgs.zsh;
+		packages = [
+			pkgs.prismlauncher
+		];
 		
 		extraGroups = [
 			"networkmanager"
