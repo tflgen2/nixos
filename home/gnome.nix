@@ -171,7 +171,7 @@ in
 	show-mounts = true;
 
 	isolate-workspace = true;
-	click-action = "launch";
+	click-action = "cycle-windows";
 	scroll-action = "cycle-windows";
 	running-indicator-style = "DOTS";
 	custom-theme-shrink = true;
