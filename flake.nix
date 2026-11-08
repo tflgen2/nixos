@@ -35,6 +35,7 @@
 	zbookSlim = mkHost "zbookSlim";
 	zbookThick = mkHost "zbookThick";
 	p14s = mkHost "p14s";
+	z440 = mkHost "z440";
 
      };
     };
